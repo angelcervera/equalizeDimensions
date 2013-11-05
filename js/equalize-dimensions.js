@@ -8,10 +8,10 @@
  * In this first version, this jQuery plugin equalizes the height of selected elements.
  * 
  * options:
- * 	selector: css selector used to select elements tos equalize. If not, equalize children elements
+ * 	selector: css selector used to select elements to equalize. If not, equalize children elements
  *
  */
-;(function($) {
+(function($) {
 
 	$.fn.equalizeDimensions = function(options) {
 		
@@ -22,7 +22,7 @@
 			options = $.extend({}, defaultOptions, options );
 			
 			var $parent = $(this);
-			var $elements;
+			var $elements = null;
 			if(options.selector) {
 				$elements = $parent.find(options.selector);
 			} else {
@@ -32,7 +32,8 @@
 			// Calculate dimension.
 			var newVal = -1, val;
 			$elements.each(function() {
-				val = $(this).height();
+				val = $(this).outerHeight(true);
+				console.log(val);
 				if(val > newVal) {
 					newVal = val;
 				}
@@ -41,11 +42,12 @@
 			// Set max height
 			$elements.each(function() {
 				if(newVal > 0) {
-					$(this).height(newVal);
+					var $this = $(this);
+					var elH = newVal - ($this.outerHeight(true) - $this.height());
+					$this.height(elH);
 				}
 			});
 		});
-		
 		
 		return this;
 	};
