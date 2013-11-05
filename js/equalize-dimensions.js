@@ -1,5 +1,5 @@
 /**
- * equalize-dimensions.js v0.0.3
+ * equalize-dimensions.js v0.0.2
  * Author & copyright (c) 2013: Ángel Cervera Claudio
  * Apache License
  *
@@ -10,6 +10,8 @@
  * options:
  * 	selector: css selector used to select elements to equalize. If not, equalize children elements
  *
+ *
+ * Example. Equalize bootstrap columns: $('.row').equalizeDimensions();
  */
 (function($) {
 
