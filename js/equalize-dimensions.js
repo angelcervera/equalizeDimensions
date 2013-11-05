@@ -1,5 +1,5 @@
 /**
- * equalize-dimensions.js v0.0.2
+ * equalize-dimensions.js v0.0.3
  * Author & copyright (c) 2013: Ángel Cervera Claudio
  * Apache License
  *
@@ -33,7 +33,6 @@
 			var newVal = -1, val;
 			$elements.each(function() {
 				val = $(this).outerHeight(true);
-				console.log(val);
 				if(val > newVal) {
 					newVal = val;
 				}
